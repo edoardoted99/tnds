@@ -80,7 +80,7 @@ int main (int argc, char** argv){
     };
     
     double temp=0;
-    //mean calculating
+    //calcolo media, var, med
 
     for (int i = 0; i < ndata; i++)
     {
@@ -98,8 +98,6 @@ int main (int argc, char** argv){
 
     double variance = temp/(ndata-1);
 
-    //median calculating
-
     double median;
 
     if (ndata%2==0)
@@ -114,51 +112,9 @@ int main (int argc, char** argv){
     cout<<"median = "<<median<<endl;
     cout<<"variance = "<<variance<<endl;
     
-    //file sorting (selection sort)
-
-    for (int i = 0; i < ndata-1; i++)
-    {
-        for (int k = i+1; k < ndata; k++)
-        {
-            if(data[k]<data[i]){
-                temp=data[k];
-                data[k]=data[i];
-                data[i]=temp;
-            }
-        }
-        
-    }
-
-    //print data
-
-    for (int i = 0; i < ndata; i++)
-    {
-        cout<<data[i]<<endl;
-    }
-    
-    
-
-    
-
-    ofstream outputFile("result.dat");
-    
-
-    for (int i = 0; i < ndata; i++)
-    {
-        outputFile<<data[i]<<endl;
-
-        
-
-    };
-
-    outputFile<<"mean = "<<mean<<endl;
-    outputFile<<"median = "<<median<<endl;
-    outputFile<<"variance = "<<variance<<endl;
     
 
     inputFile.close();
-    outputFile.close();
-    delete[] data;
     return 0;
     
 }
